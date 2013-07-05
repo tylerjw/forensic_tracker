@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DomexDocument xmlns='urn:coralreef'  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Version>1.0.0</Version>
+    <BaseReportData>
+        <DisplayId/>
+        <Classification>UNCLASSIFIED//FOUO</Classification>
+        <UniqueId/>
+        <BatchId>20130702BG-4</BatchId>
+        <ReportDate RawDateTime="20130702"/>
+        <IsIEDRelated xsi:nil="true"/>
+        <ReportCategory>CELLEX</ReportCategory>
+        <AcquireDate RawDateTime="20130702"/>
+        <AcquiringUnit>ECP 3 TF Colonist</AcquiringUnit>
+        <LocationOfCapture>
+            <MGRSLocation>42SWD2389466240</MGRSLocation>
+        </LocationOfCapture>
+    </BaseReportData>
+    <CellexReportData>
+        <KitNumber>Cellebrite: UFED 5609308</KitNumber>
+        <KitSchemaVersion>UFED XML Format: 1.0.2.4</KitSchemaVersion>
+        <KitSoftwareVersion>UFED Software Version: 1.8.5.0 UFED</KitSoftwareVersion>
+        <Owner>Taskera #1224743</Owner>
+        <ServiceProvider>ETISALAT</ServiceProvider>
+        <IsTrigger xsi:nil="true"/>
+        <ServiceTechnologyInfo>
+            <MSISDN>N/A</MSISDN>
+            <IMSI>412500212118537</IMSI>
+            <ICCID>89935010200012118537</ICCID>
+        </ServiceTechnologyInfo>
+        <PhoneBookEntries>
+            <PhoneBookEntry>
+                <Index>1</Index>
+                <Number>0781800959</Number>
+                <MemoryLocation>SIM</MemoryLocation>
+                <Designation>General</Designation>
+            </PhoneBookEntry>
+            <PhoneBookEntry>
+                <Index>2</Index>
+                <Number>0700977941</Number>
+                <MemoryLocation>SIM</MemoryLocation>
+                <Designation>General</Designation>
+            </PhoneBookEntry>
+            <PhoneBookEntry>
+                <Index>3</Index>
+                <Number>0796648442</Number>
+                <MemoryLocation>SIM</MemoryLocation>
+                <Designation>General</Designation>
+            </PhoneBookEntry>
+            <PhoneBookEntry>
+                <Index>4</Index>
+                <Number>0775125582</Number>
+                <MemoryLocation>SIM</MemoryLocation>
+                <Designation>General</Designation>
+            </PhoneBookEntry>
+            <PhoneBookEntry>
+                <Index>5</Index>
+                <Number>0777478370</Number>
+                <MemoryLocation>SIM</MemoryLocation>
+                <Designation>General</Designation>
+            </PhoneBookEntry>
+            <PhoneBookEntry>
+                <Index>6</Index>
+                <Number>+93783850152</Number>
+                <MemoryLocation>SIM</MemoryLocation>
+                <Designation>General</Designation>
+            </PhoneBookEntry>
+            <PhoneBookEntry>
+                <Index>7</Index>
+                <Number>0790459783</Number>
+                <MemoryLocation>SIM</MemoryLocation>
+                <Designation>General</Designation>
+            </PhoneBookEntry>
+            <PhoneBookEntry>
+                <Index>8</Index>
+                <Number>0796590527</Number>
+                <MemoryLocation>SIM</MemoryLocation>
+                <Designation>General</Designation>
+            </PhoneBookEntry>
+            <PhoneBookEntry>
+                <Index>9</Index>
+                <Number>0787390181</Number>
+                <MemoryLocation>SIM</MemoryLocation>
+                <Designation>General</Designation>
+            </PhoneBookEntry>
+            <PhoneBookEntry>
+                <Index>10</Index>
+                <Number>+93785683758</Number>
+                <MemoryLocation>SIM</MemoryLocation>
+                <Designation>General</Designation>
+            </PhoneBookEntry>
+            <PhoneBookEntry>
+                <Index>11</Index>
+                <Number>0786348259</Number>
+                <MemoryLocation>SIM</MemoryLocation>
+                <Designation>General</Designation>
+            </PhoneBookEntry>
+            <PhoneBookEntry>
+                <Index>12</Index>
+                <Number>+93798542121</Number>
+                <MemoryLocation>SIM</MemoryLocation>
+                <Designation>General</Designation>
+            </PhoneBookEntry>
+            <PhoneBookEntry>
+                <Index>13</Index>
+                <Number>+93789116470</Number>
+                <MemoryLocation>SIM</MemoryLocation>
+                <Designation>General</Designation>
+            </PhoneBookEntry>
+            <PhoneBookEntry>
+                <Index>14</Index>
+                <Number>0788180981</Number>
+                <MemoryLocation>SIM</MemoryLocation>
+                <Designation>General</Designation>
+            </PhoneBookEntry>
+            <PhoneBookEntry>
+                <Index>15</Index>
+                <Number>0778346147</Number>
+                <MemoryLocation>SIM</MemoryLocation>
+                <Designation>General</Designation>
+            </PhoneBookEntry>
+        </PhoneBookEntries>
+    </CellexReportData>
+</DomexDocument>
