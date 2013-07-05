@@ -15,7 +15,6 @@ class Window(Frame):
         self.out_filename.set('forensic_track.xls')
         self.poc = StringVar()
         self.error = StringVar()
-        self.error.set('test error')
         self.in_filenames = []
 
         gfm = Frame(self)
@@ -43,14 +42,13 @@ class Window(Frame):
     def add(self):
         filenames = tkFileDialog.askopenfilenames(title='Select input .xml files', filetypes=[('xml','*.xml')],
                                               multiple=True)
-        filenames = str(filenames).split(' ')
+        #filenames = str(filenames).split(' ')
         for name in filenames:
             if name not in self.in_filenames:
                 self.input_lb.insert(END, name)
                 self.in_filenames.append(name)
 
     def remove(self):
-        print "remove"
         selection = list(self.input_lb.curselection())
         selection.reverse()
         print selection
@@ -65,50 +63,69 @@ class Window(Frame):
         self.out_filename.set(filename)
         
     def parse(self):
-        print "parse"
+        if self.poc.get() == u'':
+            self.error.set("POC not set")
+            return #don't go any further
+        
         bk = Workbook()
         sh = bk.add_sheet('Sheet 1')
         row = 0
-        widths = [8, 20, 14, 3, 18, 10, 16, 27]
+        widths = [15, 20, 18, 3, 20, 10, 12, 30]
         for i,w in enumerate(widths):
             sh.col(i).width = 256*w
-        color_style = easyxf('pattern: pattern solid_fill, fore_colour green')
-        border_style = easyxf('borders: left thin, right thin, top thin, bottom thin')
+        data_style = easyxf('font: height 256;'
+                            'pattern: pattern solid_fill, fore_colour green;'
+                            'alignment: wrap True, vertical top;'
+                            'borders: left thin, right thin, top thin, bottom thin')
+        empty_style = easyxf('borders: left thin, right thin, top thin, bottom thin')
         for filename in self.in_filenames:
-            xmlfile = open(filename, 'r')
+            print filename
+            try:
+                xmlfile = open(filename, 'r')
+            except:
+                self.error.set("Error opening file: {0}".format(row+1))
+                break
             parser = xml.sax.make_parser()
             handler = XmlHandler()
             parser.setContentHandler(handler)
-            parser.parse(xmlfile)
+            try:
+                parser.parse(xmlfile)
+            except:
+                self.error.set("Error parsing file: {0}".format(row+1))
+                break
             xmlfile.close
             print handler.map
-            '''for i in range(8):
-                sh.row(row).(row,i,'',color_style)
-                sh.write(row,i,'',border_style)
-                sh.write(row+1,i,'',border_style)'''
-            sh.write(row,0,handler.map['ReportDate'])
-            sh.write(row,1,handler.map['Owner'])
-            sh.write(row,2,handler.map['BatchId'])
-            sh.write(row,3,'')
-            sh.write(row,4,handler.map['AcquiringUnit'])
-            sh.write(row,5,str(self.poc.get()).strip())
-            sh.write(row,6,':'+handler.map['IMSI'])
+            sh.write(row,0,handler.map['ReportDate'],data_style)
+            sh.write(row,1,handler.map['Owner'],data_style)
+            sh.write(row,2,handler.map['BatchId'],data_style)
+            sh.write(row,3,'',data_style)
+            sh.write(row,4,handler.map['AcquiringUnit'],data_style)
+            sh.write(row,5,str(self.poc.get()).strip(),data_style)
+            sh.write(row,6,':'+handler.map['IMSI'],data_style)
             sh.write(row,7,'1X SIM CARD '+handler.map['ServiceProvider']+
-                     ' ICCID:'+handler.map['ICCID'][-4:])
+                     ' ICCID:'+handler.map['ICCID'][-4:],data_style)
+            for i in range(8):
+                sh.write(row+1,i,'',empty_style)
             row += 2 #add a blank line inbetween
-            
-        bk.save(self.out_filename.get())
+
+        try:
+            bk.save(self.out_filename.get())
+        except:
+            self.error.set("Error writing file!")
+            return
+        self.error.set("Success!")
+        
 
 class XmlHandler(xml.sax.handler.ContentHandler):
     def __init__(self):
         self.buffer = ''
         self.map = {}
-        for tag in ['ReportDate', 'BatchId', 'AcquiringUnit', 'IMSI', 'ICCID', 'ServiceProvider',
+        for tag in ['AcquireDate', 'BatchId', 'AcquiringUnit', 'IMSI', 'ICCID', 'ServiceProvider',
                 'Owner', 'MGRSLocation']:
             self.map[tag] = ''
 
     def startElement(self, name, attributes):
-        if name == 'ReportDate':
+        if name == 'AcquireDate':
             self.map[str(name)] = attributes.getValue('RawDateTime')
         
 
