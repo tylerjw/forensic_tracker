@@ -36,3 +36,6 @@ nosetests.xml
 
 #excel output files
 *.xls
+
+#2to3 script
+2to3.py
