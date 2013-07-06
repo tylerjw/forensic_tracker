@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DomexDocument xmlns='urn:coralreef'  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Version>1.0.0</Version>
+    <BaseReportData>
+        <DisplayId/>
+        <Classification/>
+        <UniqueId/>
+        <ReportDate RawDateTime="20130703"/>
+        <IsIEDRelated xsi:nil="true"/>
+        <ReportCategory>CELLEX</ReportCategory>
+        <Comments>MULTIPLE SIMS: this is 2 of 2 for report 2592C570-1AC3-44E5-9F1C-B1A67B9DDD97.  All SIMs: 8993400909156218667 89935010200014248910</Comments>
+    </BaseReportData>
+    <CellexReportData>
+        <KitNumber>UFED 5609308</KitNumber>
+        <KitSchemaVersion>UFED XML Format: 1.0.2.4</KitSchemaVersion>
+        <KitSoftwareVersion>UFED Software Version: 1.8.5.0 UFED</KitSoftwareVersion>
+        <ServiceProvider>ETISALAT</ServiceProvider>
+        <IsTrigger xsi:nil="true"/>
+        <ServiceTechnologyInfo>
+            <MSISDN>N/A</MSISDN>
+            <IMSI>412500214248910</IMSI>
+            <ICCID>89935010200014248910</ICCID>
+        </ServiceTechnologyInfo>
+    </CellexReportData>
+</DomexDocument>
