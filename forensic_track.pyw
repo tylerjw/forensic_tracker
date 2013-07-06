@@ -27,7 +27,6 @@ class Window(Frame):
         scroll_lb = Scrollbar(lbf, command=self.input_lb.yview)
         self.input_lb.configure(yscrollcommand=scroll_lb.set)
         self.input_lb.pack(side=LEFT)
-        self.master.bind('<Control-a>',self.select_all)
         scroll_lb.pack(side=RIGHT, fill="both")
         lbf.grid(pady=5,padx=5,row=2,column=0,columnspan=4,sticky=W)
         Label(gfm, text="Output: ", width=8).grid(row=3,column=0,pady=5,sticky=W)
@@ -40,7 +39,9 @@ class Window(Frame):
         Label(gfm,text='test error',textvariable=self.error,foreground='red').grid(row=5,column=2,columnspan=3,sticky="w")
         gfm.pack(padx=10,pady=10)
 
-    def select_all(self, evt):
+        self.master.bind_class('Listbox','<Control-a>',self.select_all_lb)
+
+    def select_all_lb(self, evt):
         self.input_lb.selection_set(0,self.input_lb.size()-1)
 
     def add(self):
